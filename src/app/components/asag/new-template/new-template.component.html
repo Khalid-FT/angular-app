@@ -1,0 +1,15 @@
+<mat-card class="container" [hidden]="questions.length!=0" >
+  <mat-form-field >
+    <input [(ngModel)]="newTemplateInfo.prof_name" matInput placeholder="Prof. name" >
+  </mat-form-field>
+  <mat-form-field >
+    <input [(ngModel)]="newTemplateInfo.template_name" matInput placeholder="Template. name" >
+  </mat-form-field>
+</mat-card>
+<mat-card class="container" [hidden]="questions.length!=0" >
+   <div class="card text-center" >
+  <input type="file" class="upload" (change)="fileupload($event.target.files)" accept=".csv" #fileUploader>
+</div>
+</mat-card>
+<app-default-template [hidden]="questions.length==0" [asag_request]="asag_request" [newTemplateInfo]="newTemplateInfo"  [btnSubmitisDisabled]="true" (newQuestions)="newQuests($event)" ></app-default-template>
+

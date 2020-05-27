@@ -1,0 +1,65 @@
+<mat-card  class="container">
+    <mat-card-content class="my-2 " >
+        <div class="row ">
+          <div class="col ">
+           Prof name:  {{ this.newTemplateInfo.prof_name }}
+          </div>
+          <div class="col ">
+           Template name: {{ this.newTemplateInfo.template_name }}
+          </div>
+        </div>
+  </mat-card-content>
+</mat-card>
+<mat-card  *ngFor=" let elem of asag_request ; let i = index " class="container "  >
+    <mat-card-header class="justify-content-end" >
+           <mat-card-title style="display: flex" > {{ elem.question }}</mat-card-title>
+    </mat-card-header>
+  <span *ngIf=" asag_response.length > 0 " >score : {{ asag_response[i].score }}</span>
+  <mat-card-content class="my-2" >
+        <div class="row">
+          <div class="col">
+               <mat-form-field style="width: 100%; text-align: right">
+               <input style="font-size: large"  [(ngModel)]="elem.answer" matInput placeholder="جواب" >
+          </mat-form-field>
+          </div>
+        </div>
+  </mat-card-content>
+</mat-card>
+<mat-card  class="container">
+    <mat-card-content class="my-2 " >
+        <div class="row ">
+          <div class="col text-right">
+             <button [hidden]="btnBackisDisabled" (click)="btnBack()" class="mx-3" mat-flat-button color="warn" > new questions</button>
+            <button [hidden]="btnBAddTemplateisDisabled" (click)="btnAddTemplate()" class="mx-3" mat-flat-button color="warn" > add template</button>
+             <button [hidden]="btnSubmitisDisabled" (click)="btnSubmit()" class="mx-3" mat-flat-button color="warn" >Submit</button>
+          </div>
+        </div>
+  </mat-card-content>
+</mat-card>
+<mat-card [hidden]="btnBAddTemplateisDisabled" class="container">
+    <mat-card-content class="my-4 " >
+        <div class="row ">
+          <div class="col text-right">
+            response: {{ this.response | json }}
+          </div>
+        </div>
+  </mat-card-content>
+</mat-card>
+<mat-card  [hidden]="btnSubmitisDisabled" class="container">
+    <mat-card-content class="my-4 " >
+        <div class="row ">
+          <div class="col text-right">
+             request : {{ asag_request | json }}
+          </div>
+        </div>
+  </mat-card-content>
+</mat-card>
+<mat-card [hidden]="btnSubmitisDisabled"  class="container">
+    <mat-card-content class="my-4 " >
+        <div class="row ">
+          <div class="col text-right">
+             resposnse : {{ asag_response | json }}
+          </div>
+        </div>
+  </mat-card-content>
+</mat-card>

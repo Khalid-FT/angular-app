@@ -1,0 +1,36 @@
+<div class="container my-3"  >
+  <div class="row my-2 py-1 " >
+       <div class="col " >
+         <span>Enter arabic text</span>
+       </div>
+  </div>
+  <div class="row my-2" >
+       <div class="col " >
+            <div class="form-group">
+                 <textarea [(ngModel)]="text.body" style="height: 150px"  type="text" class="form-control text-right " ></textarea>
+            </div>
+       </div>
+  </div>
+  <div class="row mx-2 text-center " >
+       <div class="col " >
+            <mat-form-field style="width: 300px" class="m-2" >
+                  <mat-label>Choose an option</mat-label>
+                  <mat-select [(ngModel)]="text.step" >
+                    <mat-option value="tokenization">Segmentation التقطيع الصرفي</mat-option>
+                    <mat-option value="diacritization">Diacritization </mat-option>
+                    <mat-option value="lemma">Lemmatization أصول الكلمات</mat-option>
+                    <mat-option value="stopwords">remove stop words </mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <button mat-flat-button color="warn" class="m-2" (click)="process()" >Process text</button>
+            <button mat-flat-button color="warn" class="m-2" (click)="clearText()" >Clear text</button>
+       </div>
+  </div>
+  <div class="row my-2 " >
+       <div class="col-sm " >
+         <div class="form-group">
+               <textarea [value]="result.body" style="height: 150px" disabled type="text" class="form-control text-right " ></textarea>
+         </div>
+       </div>
+  </div>
+</div>
