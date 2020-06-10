@@ -1,0 +1,9 @@
+version: '3'
+services:
+  front-end:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - .:/angular-app
+    container_name: angular-app
