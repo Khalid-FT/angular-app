@@ -1,8 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ArNLPService} from "../../../services/ar-nlp.service";
-import {IQuestion} from "../../../interfaces/IQuestion";
-import {IAsag_request} from "../../../interfaces/IAsag_request";
-import {ITemplate_info} from "../../../interfaces/ITemplate_info";
+import {IQuestion} from '../../../interfaces/IQuestion';
+import {IAsag_request} from '../../../interfaces/IAsag_request';
+import {ITemplate_info} from '../../../interfaces/ITemplate_info';
 
 @Component({
   selector: 'app-new-template',
@@ -22,8 +21,10 @@ export class NewTemplateComponent implements OnInit {
   loadAnswers( questions ){
       let elem: IQuestion ;
       for ( elem of questions ) {
-         this.asag_request.push( { question: elem.question ,  answer: '' } ) ;
+         this.asag_request.push( { question: elem.question,  answer: '', keywords: [[elem.keywords1], [elem.keywords2], [elem.keywords3], [elem.keywords4]] } ) ;
        }
+      console.log('questions: ', this.questions);
+      console.log('asag_request: ', this.asag_request);
   }
 
   csvJSON(csvText) {
@@ -31,7 +32,7 @@ export class NewTemplateComponent implements OnInit {
     const result = [];
     const headers = lines[0].split(',');
    // console.log(headers);
-    for (let i = 1; i < lines.length - 1; i++) {
+    for (let i = 1; i < lines.length ; i++) {
         const obj = {};
         const currentline = lines[i].split(',');
         for (let j = 0; j < headers.length; j++) {
@@ -40,6 +41,7 @@ export class NewTemplateComponent implements OnInit {
         result.push(obj);
     }
     this.questions = JSON.parse(JSON.stringify(result));
+    console.log('questions: ', this.questions);
  }
 
   fileupload(files: FileList){
@@ -49,6 +51,7 @@ export class NewTemplateComponent implements OnInit {
        reader.readAsText(file);
        reader.onload = (e) => {
             const csv = reader.result ;
+            console.log(csv);
             this.csvJSON(csv);
             this.loadAnswers(this.questions);
          };

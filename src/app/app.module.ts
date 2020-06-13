@@ -15,8 +15,8 @@ import { DefaultTemplateComponent } from './components/asag/default-template/def
 
 const routes: Routes = [
   { path: 'process' , component: ArNLPComponent },
-  { path: 'asag' , component: NewTemplateComponent },
-  { path: 'asag/:prof_name/:template_name' , component: LoadTemplateComponent },
+  { path: 'addtemplate' , component: NewTemplateComponent },
+  { path: 'gettemplate/:prof_name/:template_name' , component: LoadTemplateComponent },
   { path: '' ,   redirectTo: 'process', pathMatch: 'full'  },
   { path: '**' ,   redirectTo: 'process', pathMatch: 'full'  },
 ];

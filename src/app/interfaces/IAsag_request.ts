@@ -1,4 +1,5 @@
 export interface IAsag_request {
-  question: string
+  question: string;
   answer: string;
+  keywords: string[][];
 }

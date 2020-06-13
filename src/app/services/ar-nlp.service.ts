@@ -4,6 +4,7 @@ import {IText} from '../interfaces/IText';
 import {IAsag_response} from '../interfaces/IAsag_response';
 import {IAsag_request} from '../interfaces/IAsag_request';
 import {IQuestion} from '../interfaces/IQuestion';
+import {IResponse} from '../interfaces/IResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class ArNLPService {
 
   loadTemplate(prof_name , template_name){
     const opts = { params: new HttpParams({fromString: 'prof=' + prof_name + '&temp=' + template_name}) };
-    return this.httpClient.get<IQuestion[]>(this.URL_API + 'asag',  opts);
+    return this.httpClient.get<IResponse[]>(this.URL_API + 'gettemplate',  opts);
   }
 
   addTemplate(template){
