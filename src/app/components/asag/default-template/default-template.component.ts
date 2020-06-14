@@ -26,7 +26,6 @@ export class DefaultTemplateComponent implements OnInit {
 
   constructor(private arNLPService: ArNLPService) {
    // if ( this.asag_request.length === 0 ) { this.btnSubmitisDisabled = true ; }
-
   }
 
   ngOnInit(): void {
@@ -45,9 +44,12 @@ export class DefaultTemplateComponent implements OnInit {
     this.newTemplateInfo.template_name = '' ;
     this.submited = false;
     this.newQuestions.emit(false);
+    this.response = [] ;
+    this.btnBAddTemplateisDisabled = false ;
   }
 
   btnAddTemplate(){
+    this.btnBAddTemplateisDisabled = true ;
     this.template.push( this.newTemplateInfo );
     let item = {};
     for ( item of this.asag_request ) {

@@ -14,7 +14,8 @@
     <mat-card-header class="justify-content-end" >
            <mat-card-title style="display: flex" > {{ elem.question }}</mat-card-title>
     </mat-card-header>
-  <span *ngIf=" asag_response.length > 0 " >score : {{ asag_response[i].score }}</span>
+  <span *ngIf=" asag_response.length > 0 " >NLP score : {{ asag_response[i].score }}</span>
+   <span *ngIf=" asag_response.length > 0 " class="ml-3" >REGEXP score : {{ asag_response[i].reg_score }}</span>
   <mat-card-content class="my-2" >
         <div class="row">
           <div class="col">
@@ -36,15 +37,6 @@
         </div>
   </mat-card-content>
 </mat-card>
-<mat-card [hidden]="btnBAddTemplateisDisabled" class="container">
-    <mat-card-content class="my-4 " >
-        <div class="row ">
-          <div class="col text-right">
-            response: {{ this.response | json }}
-          </div>
-        </div>
-  </mat-card-content>
-</mat-card>
 <mat-card  [hidden]="btnSubmitisDisabled" class="container">
     <mat-card-content class="my-4 " >
         <div class="row ">
@@ -58,7 +50,7 @@
     <mat-card-content class="my-4 " >
         <div class="row ">
           <div class="col text-right">
-             resposnse : {{ asag_response | json }}
+             response : {{ asag_response | json }}
           </div>
         </div>
   </mat-card-content>
