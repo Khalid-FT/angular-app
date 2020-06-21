@@ -53,6 +53,7 @@ export class DefaultTemplateComponent implements OnInit {
     this.template.push( this.newTemplateInfo );
     let item = {};
     for ( item of this.asag_request ) {
+      console.log(item) ;
       this.template.push(item) ;
     }
     this.arNLPService.addTemplate(this.template).subscribe( response => this.response = response );

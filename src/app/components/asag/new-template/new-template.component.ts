@@ -23,7 +23,6 @@ export class NewTemplateComponent implements OnInit {
       for ( elem of questions ) {
          this.asag_request.push( { question: elem.question,  answer: '', keywords: [[elem.keywords1], [elem.keywords2], [elem.keywords3], [elem.keywords4]] } ) ;
        }
-      console.log('questions: ', this.questions);
       console.log('asag_request: ', this.asag_request);
   }
 
@@ -51,7 +50,6 @@ export class NewTemplateComponent implements OnInit {
        reader.readAsText(file);
        reader.onload = (e) => {
             const csv = reader.result ;
-            console.log(csv);
             this.csvJSON(csv);
             this.loadAnswers(this.questions);
          };
