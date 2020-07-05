@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {IText} from '../interfaces/IText';
 import {IAsag_response} from '../interfaces/IAsag_response';
-import {IAsag_request} from '../interfaces/IAsag_request';
-import {IQuestion} from '../interfaces/IQuestion';
 import {IResponse} from '../interfaces/IResponse';
 
 @Injectable({
@@ -17,7 +15,7 @@ export class ArNLPService {
     return this.httpClient.post<IText>(this.URL_API + 'process' , text);
   }
 
-  asag(asagRequest: IAsag_request[]){
+  asag(asagRequest){
       return this.httpClient.post<IAsag_response[]>(this.URL_API + 'asag' , asagRequest);
   }
 

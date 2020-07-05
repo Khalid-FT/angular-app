@@ -32,7 +32,13 @@ export class DefaultTemplateComponent implements OnInit {
   }
 
   btnSubmit(){
-    this.arNLPService.asag(this.asag_request).subscribe( response => this.asag_response = response);
+    this.template.push( this.newTemplateInfo );
+    let item = {};
+    for ( item of this.asag_request ) {
+      console.log(item) ;
+      this.template.push(item) ;
+    }
+    this.arNLPService.asag(this.template).subscribe( response => this.asag_response = response);
     // this.submited = true ;
   }
 

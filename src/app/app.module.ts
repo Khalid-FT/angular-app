@@ -12,13 +12,15 @@ import {NavBarComponent} from './components/nav-bar/nav-bar.component';
 import { NewTemplateComponent } from './components/asag/new-template/new-template.component';
 import { LoadTemplateComponent } from './components/asag/load-template/load-template.component';
 import { DefaultTemplateComponent } from './components/asag/default-template/default-template.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
+  { path: 'home' , component: HomeComponent },
   { path: 'process' , component: ArNLPComponent },
   { path: 'addtemplate' , component: NewTemplateComponent },
   { path: 'gettemplate/:prof_name/:template_name' , component: LoadTemplateComponent },
-  { path: '' ,   redirectTo: 'process', pathMatch: 'full'  },
-  { path: '**' ,   redirectTo: 'process', pathMatch: 'full'  },
+  { path: '' ,   redirectTo: 'home', pathMatch: 'full'  },
+  { path: '**' ,   redirectTo: 'home', pathMatch: 'full'  },
 ];
 
 @NgModule({
@@ -28,7 +30,8 @@ const routes: Routes = [
     NavBarComponent,
     NewTemplateComponent,
     LoadTemplateComponent,
-    DefaultTemplateComponent
+    DefaultTemplateComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

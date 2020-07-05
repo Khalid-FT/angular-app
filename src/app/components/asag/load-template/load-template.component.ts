@@ -35,6 +35,7 @@ export class LoadTemplateComponent implements OnInit {
     return this.arNLPService.loadTemplate(prof_name, template_name).subscribe( response => {
       this.questions = response;
       this.loadAnswers(this.questions);
+      if ( this.questions.length == 0 ) { this.submited = true ; }
     }) ;
   }
 
