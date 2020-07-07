@@ -7,9 +7,17 @@
   </mat-form-field>
 </mat-card>
 <mat-card class="container" [hidden]="questions.length!=0" >
+    <p class="mb-4" >add a csv file with 6 columns: <br>
+              <span class="pl-5" >•	Question ID</span><br>
+              <span class="pl-5" >•	Question text</span><br>
+              <span class="pl-5" >•	Keywords1: (optional)  word  should be in the response</span><br>
+              <span class="pl-5" >•	Keywords2: (optional)  word  should be in the response</span><br>
+              <span class="pl-5" >•	Keywords3: (optional)  word  should be in the response</span><br>
+              <span class="pl-5" >•	Keywords4: (optional)  word  should be in the response</span>
+     </p>
    <div class="card text-center" >
-  <input type="file" class="upload" (change)="fileupload($event.target.files)" accept=".csv" #fileUploader>
-</div>
+     <input type="file" class="upload" (change)="fileupload($event.target.files)" accept=".csv" #fileUploader>
+   </div>
 </mat-card>
 <app-default-template [hidden]="questions.length==0" [asag_request]="asag_request" [newTemplateInfo]="newTemplateInfo"  [btnSubmitisDisabled]="true" (newQuestions)="newQuests($event)" ></app-default-template>
 
